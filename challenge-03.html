@@ -1,27 +1,139 @@
 <!doctype html>
 <html>
-  <head>
-    
-    <style>
-      /* Your styles here */
-      
-    </style>
-  </head>
-  <body>
-    <form action="/your/api" method="">
-    
-      <label>Name</label>
+<head>
+
+  <style>
+  /* Your styles here */
+
+    body {
+      /* Set a base font style */
+      font-family: Helvetica;
+      font-weight: 100;
+      font-size: 16px;
+      line-height: 1.5;
+      color: white;
+
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 600px;
+      padding: 3em;
+      background-image: url("https://ak0.picdn.net/shutterstock/videos/1485730/thumb/1.jpg");
+      background-size: auto;
+      border-radius: 1em;
+    }
+
+    input, textarea {
+      font-size: 1em;
+      padding: 0.75em;
+    }
+
+    #pet {
+      width: 2em;
+    }
+
+    .bio textarea, .button_box input, .destruct input, input[type=file], input[type=text], input[type=email], input[type=number], input[type=birthday], input[type=radio], select {
+      margin: 1em 0 1em 0;
+      border: 1px solid white;
+      border-radius: 5px;
+      width: 100%;
+      background-color: transparent;
+      color: white;
+    }
+
+    select {
+      width: 5em;
+      background-color: transparent;
+      border-color: white;
+    }
+
+    input[type=file] {
+      width: 200px;
+    }
+
+
+    .admin {
+      margin: 1em 0 1em 0;
+    }
+
+    .admin input, .admin label {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      align-items: center;
+      margin: 5px 0 5px 0;
+      padding: 5px;
+    }
+
+    .admin input {
+      margin-right: 5px;
+      width: 1em;
+    }
+
+    .bio textarea{
+      width: 100%;
+    }
+
+    .destruct input {
+      width: 100%;
+    }
+
+    .button_box{
+      margin-top: 10px;
+      text-align: center;
+    }
+    .button_box input {
+      width: 50%;
+      display: block;
+      padding: 1em;
+      margin: 0 auto;
+      background-color: transparent;
+    }
+
+    .button_box input:hover {
+      cursor: pointer;
+      background-color: #228B22;
+      color: white;
+      border: 0;
+    }
+
+    input:hover, textarea:hover, select:hover {
+      background-color: white;
+      color: black;
+    }
+
+  </style>
+</head>
+<body>
+  <form action="/your/api" method="">
+
+    <label>
+      <span>Name</span>
       <input name="name" type="text" placeholder="Your name">
-      
-      <label>Email</label>
+    </label>
+
+    <label>
+      <span>Email</span>
       <input name="email" type="email">
-      
-      <label>Pet Count</label>
-      <input name="pets">
-      
-      <label>Birthday</label>
-      <input name="birthday">
-      
+    </label>
+
+    <label>
+      <span>Pet Count</span>
+      <input id="pet" name="pets" type="number">
+    </label>
+
+    <label>
+      <span>Birthday</span>
+      <input name="birthday" type="birthday">
+    </label>
+
+    <label> Prefix
       <select name="prefix">
         <option>Mr</option>
         <option>Mrs</option>
@@ -31,29 +143,46 @@
         <option>Dr</option>
         <option>None</option>
       </select>
-      
-      <!-- Associate labels with form elements with for and id -->
-      <input id="radio-admin" type="radio" name="role" value="Admin"/>
-      <label for="radio-admin">Admin</label>
-      
-      <input type="radio" name="role" value="Editor" />
-      <label>Editor</label>
-      
-      <input type="radio" name="role" value="Contributor" />
-      <label>Contributor</label>
-      
-      <input type="checkbox" name="public">
-      <label>Public Bio</label>
-      
-      <textarea name="bio"></textarea>
-      
-      <label>Upload Image</label>
-      <input name="image" type="file">
-      
-      <label>Self Destruct</label>
-      <input name="self-destruct" type="check">
-      
-      <button type="submit">Submit</button>
-    </form>
-  </body>
-</html>
+    </label>
+    <!-- Associate labels with form elements with for and id -->
+    <div class="admin">
+      <label for="radio-admin">
+        <input id="radio-admin" type="radio" name="role" value="Admin"/>
+        <span>Admin</span>
+      </label>
+
+      <label>
+        <input type="radio" name="role" value="Editor" /> Editor</label>
+
+        <label>
+          <input type="radio" name="role" value="Contributor" /> Contributor</label>
+
+          <label><input type="checkbox" name="public"> Public Bio</label>
+
+        </div>
+
+        <div class="bio">
+          <label>
+            <span>Bio</span>
+            <textarea name="bio"></textarea>
+          </label>
+        </div>
+
+        <label>
+          <span>Upload Image</span>
+          <input name="image" type="file">
+        </label>
+
+        <div class="destruct">
+          <label>
+            <span>Self Destruct</span>
+            <input name="self-destruct" type="check">
+          </label>
+        </div>
+
+        <div class="button_box">
+          <input type="submit" name="" value="SUBMIT">
+        </div>
+      </form>
+    </body>
+  </html>
